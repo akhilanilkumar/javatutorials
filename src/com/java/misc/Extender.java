@@ -1,5 +1,7 @@
 package com.java.misc;
 
+import java.util.Objects;
+
 public final class Extender {
     public static int factorial(int number) {
         return (number <= 1) ? 1 : number * factorial(number - 1);
@@ -24,7 +26,7 @@ public final class Extender {
     }
 
     public static boolean isPalindrome(String str) {
-        return new StringBuilder(str).reverse().toString().equals(str);
+        return Objects.equals(new StringBuilder(str).reverse().toString(), str);
     }
 
     public static void showPalindromes(int limit) {
