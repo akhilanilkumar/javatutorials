@@ -7,6 +7,7 @@ public final class Extender {
 
     public static void displayPrime(int number) {
         if (number < 2) {
+            System.out.println();
             return;
         }
         boolean isPrime = true;
@@ -20,5 +21,23 @@ public final class Extender {
             System.out.print(number + "->");
         }
         displayPrime(--number);
+    }
+
+    public static boolean isPalindrome(String str) {
+        return new StringBuilder(str).reverse().toString().equals(str);
+    }
+
+    public static void showPalindromes(int limit) {
+        for (int i = 0, num; i < limit; i++) {
+            num = i;
+            int reverse = 0;
+            while (num > 0) {
+                reverse = reverse * 10 + num % 10;
+                num /= 10;
+            }
+            if (reverse == i) {
+                System.out.print("|" + i + "|");
+            }
+        }
     }
 }
