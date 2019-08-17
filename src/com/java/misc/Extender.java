@@ -18,7 +18,7 @@ public final class Extender {
             }
         }
         if (isPrime) {
-            System.out.print(number + "->");
+            System.out.print(number + ", ");
         }
         displayPrime(--number);
     }
@@ -28,16 +28,12 @@ public final class Extender {
     }
 
     public static void showPalindromes(int limit) {
-        for (int i = 0, num; i < limit; i++) {
-            num = i;
-            int reverse = 0;
-            while (num > 0) {
-                reverse = reverse * 10 + num % 10;
-                num /= 10;
-            }
-            if (reverse == i) {
-                System.out.print("|" + i + "|");
-            }
-        }
+        for (int i = 0; i < limit; i++)
+            if (reverse(i, 0) == i)
+                System.out.print(i + ", ");
+    }
+
+    private static int reverse(int num, int rev) {
+        return num == 0 ? rev : reverse(num / 10, rev * 10 + num % 10);
     }
 }
